@@ -36,6 +36,17 @@ Graph.prototype.addEdge = function(fromNode, toNode){
 };
 
 Graph.prototype.removeEdge = function(fromNode, toNode){
+  for (var i = 0; i < this.nodes[fromNode].connections.length; i++) {
+    if (this.nodes[fromNode].connections[i].value === toNode) {
+      this.nodes[fromNode].connections.splice(i, 1);
+    }
+  }
+
+  for (var i = 0; i < this.nodes[toNode].connections.length; i++) {
+    if (this.nodes[toNode].connections[i].value === fromNode) {
+      this.nodes[toNode].connections.splice(i, 1);
+    }
+  }
 };
 
 Graph.prototype.forEachNode = function(cb){
