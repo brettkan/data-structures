@@ -15,13 +15,23 @@ var Tree = function(value){
 var treeMethods = {};
 
 treeMethods.addChild = function(value){
-  var child =  {};
-  child.value = value;
+  var child = Tree(value);
   this.children.push(child);
 };
 
 treeMethods.contains = function(target){
+  if (this.value === target) {
+    return true;
+  }
 
+  // if (this.children !== undefined){
+  for (var i = 0; i<this.children.length; i++){
+    if (this.children[i].contains(target)) {
+      return true;
+    }
+  }
+ // }
+  return false;
 };
 
 
