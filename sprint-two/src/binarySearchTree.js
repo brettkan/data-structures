@@ -24,9 +24,7 @@ binaryMethods.insert = function(value) {
     } else {
       this.left.insert(value);
     }
-  }
-
-  if (value > this.value) {
+  } else if (value > this.value) {
     if (this.right === null) {
       this.right = BinarySearchTree(value);
     } else {
@@ -35,8 +33,15 @@ binaryMethods.insert = function(value) {
   }
 };
 
-binaryMethods.contains = function() {
-
+binaryMethods.contains = function(target) {
+  if (target === this.value) {
+    return true;
+  } else if (target < this.value) {
+    return this.left.contains(target);
+  } else if (target > this.value) {
+    debugger;
+    return this.right.contains(target);
+  }
 };
 
 binaryMethods.depthFirstLog = function() {
