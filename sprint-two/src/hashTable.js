@@ -6,14 +6,12 @@ var HashTable = function(){
 HashTable.prototype.insert = function(k, v){
   var i = getIndexBelowMaxForKey(k, this._limit);
 
-  if (this._storage[i] === null || undefined) {
+  if (this._storage.get(i) === undefined) {
     var newLinkedList = LinkedList();
     this._storage.set(i, newLinkedList);
   }
 
-  debugger;
-  this._storage[i].addToTail(v);
-  debugger;
+  this._storage.get(i).addToTail(v);
 };
 
 HashTable.prototype.retrieve = function(k){
