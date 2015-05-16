@@ -11,12 +11,12 @@ HashTable.prototype.insert = function(k, v){
     this._storage.set(i, newLinkedList);
   }
 
-  this._storage.get(i).addToTail(v);
+  this._storage.get(i).addToTail([k, v]);
 };
 
 HashTable.prototype.retrieve = function(k){
   var i = getIndexBelowMaxForKey(k, this._limit);
-  return this._storage.get(i);
+  return this._storage.get(i).find(k)[1];
 };
 
 HashTable.prototype.remove = function(k){
