@@ -37,10 +37,9 @@ binaryMethods.contains = function(target) {
   if (target === this.value) {
     return true;
   } else if (target < this.value) {
-    return this.left.contains(target);
+    return this.left === null ? false : this.left.contains(target);
   } else if (target > this.value) {
-    debugger;
-    return this.right.contains(target);
+    return this.right === null ? false : this.right.contains(target);
   }
 };
 
