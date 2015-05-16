@@ -22,13 +22,23 @@ var LinkedList = function(){
   };
 
   list.contains = function(target){
-    for  (var node = list.head; node !== null; node=node.next){
+    for (var node = list.head; node !== null; node=node.next){
       if (node.value === target){
         return true;
       }
     }
     return false;
 
+  };
+
+  list.find = function(target){
+    for (var node = list.head; node !== null; node=node.next){
+      if (node.value[0] === target){
+        return node.value;
+      }
+    }
+
+    return null;
   };
 
   return list;
