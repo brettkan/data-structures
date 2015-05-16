@@ -13,10 +13,6 @@ var BinarySearchTree = function(value){
 var binaryMethods = {};
 
 binaryMethods.insert = function(value) {
-  // if (this.left === undefined && this.right === undefined) {
-  //   var node = BinarySearchTree(value);
-  //   node.first = true;
-  // }
 
   if (value < this.value) {
     if (this.left === null) {
@@ -43,8 +39,15 @@ binaryMethods.contains = function(target) {
   }
 };
 
-binaryMethods.depthFirstLog = function() {
+binaryMethods.depthFirstLog = function(callback) {
+  callback(this.value);
 
+  if (this.left !== null) {
+    this.depthFirstLog(callback);
+  }
+  if (this.right !== null) {
+    this.depthFirstLog(callback);
+  }
 };
 
 /*
