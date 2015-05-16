@@ -43,6 +43,21 @@ var LinkedList = function(){
     return null;
   };
 
+  // Used for hashTable function
+  list.linkedRemove = function(key) {
+    for (var node = list.head; node !== null; node=node.next){
+      if (node.next === null) {
+        list.removeHead();
+      } else {
+        if (node.next.value[0] === key) {
+          node.next === node.next.next;
+          break;
+        }
+      }
+    }
+
+  };
+
   return list;
 };
 
