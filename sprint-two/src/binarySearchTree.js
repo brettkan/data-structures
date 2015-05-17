@@ -43,10 +43,10 @@ binaryMethods.depthFirstLog = function(callback) {
   callback(this.value);
 
   if (this.left !== null) {
-    this.depthFirstLog(callback);
+    this.left.depthFirstLog(callback);
   }
   if (this.right !== null) {
-    this.depthFirstLog(callback);
+    this.right.depthFirstLog(callback);
   }
 };
 
